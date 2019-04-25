@@ -1,0 +1,13 @@
+body {
+  background-image: linear-gradient(to right, #3aa655, #56887d);
+}
+
+h2 {
+  position: absolute;
+  top: 70%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+  color: #ffd12a;
+  font-size: 20px;
+  font-weight: bold;
+}
