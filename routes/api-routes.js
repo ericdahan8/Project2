@@ -1,24 +1,33 @@
 
+var db = require("../models");
 
-var express = require("express");
-//var result = require("../models/result.js");
-var router = express.Router();
+// Routes
+// =============================================================
+module.exports = function(app) {
 
-router.get("/", function (req, res) {
-    $.ajax({
-        url: "https://data.cityofnewyork.us/resource/sxx4-xhzg.json",
-        type: "GET",
-        data: {
-          "$limit" : 5000,
-          "$$app_token" : "Am83r4ZpRaYplXFQitFvyEJar"
-        }
-    }).done(function(data) {
-      alert("Retrieved " + data.length + " records from the dataset!");
-      console.log(data);
+  app.get("/api/recyclables", function(req, res) {
+    db.recyclables.findAll().then(function(results) {
+      res.json(results);
     });
-});
+  });
 
-router.post("/api/", function (req, res) {
-});
+  app.get("/api/todos/:id", function(req, res) {
+    db.recyclables.findAll({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(results){
+      res.json(results);
+    });
+  });
 
-module.exports = router;
+  app.post("/api/recyclables", function(req, res) {
+    db.recyclables.create({
+      name: req.body.text
+    }).then(function(results){
+      res.json(results);
+    });
+    res.status(204).end();
+  });
+};
