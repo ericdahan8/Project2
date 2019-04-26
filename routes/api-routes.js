@@ -1,8 +1,6 @@
 
 var db = require("../models");
 
-// Routes
-// =============================================================
 module.exports = function(app) {
 
   app.get("/api/recyclables", function(req, res) {
@@ -11,7 +9,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/todos/:id", function(req, res) {
+  app.get("/api/recyclables/:id", function(req, res) {
     db.recyclables.findAll({
       where: {
         id: req.params.id
