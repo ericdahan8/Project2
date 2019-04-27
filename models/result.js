@@ -1,6 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('Todo', {
-      text: DataTypes.STRING,
-      complete: DataTypes.BOOLEAN
-    });
-  }
+  return sequelize.define('categories', {
+    name: DataTypes.STRING,
+    description: DataTypes.TEXT,
+    imagelink: DataTypes.STRING
+  });
+}
