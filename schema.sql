@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS recyclables;
 
 CREATE TABLE categories
 (
-    id int NOT NULL,
+    id int AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
     imagelink VARCHAR (255) NOT NULL,
     description LONGTEXT NOT NULL,
