@@ -18,7 +18,7 @@ CREATE TABLE categories
 
 CREATE TABLE recyclables
 (
-    id int AUTO INCREMENT,
+    id int AUTO_INCREMENT,
     itemname VARCHAR(255) NOT NULL,
     categoryID VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
