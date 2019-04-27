@@ -1,0 +1,38 @@
+body {
+  /* background-image: linear-gradient(to right, #7bcc1f, white); */
+  background-image: url(../Images/clouds-cloudy-drone-photography-2020381.jpg);
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.body {
+  background-image: url(../Images/bright-bush-close-up-101841.jpg);
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+#body {
+  background-image: url(../Images/close-up-fresh-freshness-1964869.jpg);
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+h2 {
+  position: absolute;
+  top: 70%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+  color: #ffd12a;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar {
+  background-color: #3aa655;
+}
+.navbar-toggler-icon {
+  border: solid white;
+}
