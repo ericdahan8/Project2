@@ -1,6 +1,6 @@
 body {
   /* background-image: linear-gradient(to right, #7bcc1f, white); */
-  background-image: url(../Images/clouds-cloudy-drone-photography-2020381.jpg);
+  background-color: #f2f4e6;
   background-size: 100%;
   width: 100%;
   height: 100%;
@@ -31,7 +31,7 @@ h2 {
 }
 
 .navbar {
-  background-color: #3aa655;
+  background-color: #8abd30;
 }
 .navbar-toggler-icon {
   border: solid white;
