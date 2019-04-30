@@ -4,12 +4,20 @@ const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || "development";
+const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
-const sequelize = new Sequelize(
+//change this to dot_env later:
+let sequelize;
+sequelize = new Sequelize(
   "ilgd6w3fv2b1hprm",
   "xfwtxxtle8ag4noj",
-  "wiycii6vuedplk2b"
+  "wiycii6vuedplk2b",
+  {
+    host: "wftuqljwesiffol6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    dialect: "mysql"
+  }
 );
 
 fs.readdirSync(__dirname)
