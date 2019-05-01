@@ -74,19 +74,25 @@
       </p>
 
       <video controls></video>
-
+<div style="text-align: center;">
       <p>
         <button id="btnStart" type="button" class="btn btn-success">
           Start
         </button>
-
+    </div>
         <br />
         <br />
         <br />
+        <div style="text-align: center;">
         <button id="btnStop" type="button" class="btn btn-danger">
           Stop
         </button>
       </p>
+      </div>
+      <br />
+      <br />
+      <br>
+      <br>
 
       <video id="vid2" controls></video>
 
@@ -96,7 +102,7 @@
       let constraintObj = {
         audio: false,
         video: {
-          facingMode: "user",
+          facingMode: "environment",
           width: { min: 640, ideal: 1280, max: 1920 },
           height: { min: 480, ideal: 720, max: 1080 }
         }
