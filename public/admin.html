@@ -60,16 +60,16 @@ document.querySelector('#sign-in').addEventListener('click', function(e) {
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
   varErrorCode = error.varErrorCode
   var errorMessage = error.message;
-  console.log('sign in error', error)
+  console.log('sign in error', error);
 
-  if (!error) {
-    console.log ('Logged in');
-    document.getElementById('adminquestions').style.visibility = 'visible';
-  }
+  
+   
+  
 })
       }
       
-
+      document.getElementById('adminquestions').style.visibility = 'visible';
+  
     });
 
 //Sign in useer
@@ -78,6 +78,7 @@ document.querySelector('#sign-out').addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       firebase.auth().signOut();
+      document.getElementById('adminquestions').style.visibility = 'hidden';
       alert('You are signed out')
     });
 
