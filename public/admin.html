@@ -1,173 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Material Design Bootstrap</title>
+<html>
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    />
-    <!-- Bootstrap core CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- Material Design Bootstrap -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css"
-      rel="stylesheet"
-    />
-    <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet" />
-    <!---CSS link--->
-    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
-  </head>
+<head>
+  <title>Authentication</title>
+</head>
 
-  <body>
-    <!-- Start your project here-->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="#">
-        <img src="../Images/logo.png" height="30" alt="mdb logo" />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="../home.html"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../info.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Capture</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../admin.html">Admin</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <br />
-
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <!-- Default form login -->
-          <form
-            class="text-center border p-3"
-            style="background-color: #8abd30"
-          >
-            <p class="h4 mb-4" style="color: #42210B">Sign in (Admin Only)</p>
-
-            <!-- Email -->
-            <input
-              type="email"
-              id="defaultLoginFormEmail"
-              class="form-control mb-4"
-              placeholder="E-mail"
-            />
-
-            <!-- Password -->
-            <input
-              type="password"
-              id="defaultLoginFormPassword"
-              class="form-control mb-4"
-              placeholder="Password"
-            />
-
-            <div class="d-flex justify-content-around">
-              <div>
-                <!-- Remember me -->
-                <div class="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="defaultLoginFormRemember"
-                  />
-                  <label
-                    class="custom-control-label"
-                    for="defaultLoginFormRemember"
-                    >Remember me</label
-                  >
-                </div>
-              </div>
-              <div>
-                <!-- Forgot password -->
-                <a href="" style="color: #42210B">Forgot password?</a>
-              </div>
-            </div>
-
-            <!-- Sign in button -->
-            <button class="btn-black btn-blo my-4" type="submit">
-              Sign in
-            </button>
-
-            <!-- Register -->
-            <p>
-              Not a member?
-              <a href="" style="color: #42210B;">Register</a>
-            </p>
-          </form>
-        </div>
-      </div>
+<body>
+  <form>
+    <div>
+      <input id="email" type="text" placeholder="Email...">
     </div>
-    <!-- Default form login -->
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
-            optio molestiae necessitatibus illum similique? Deleniti earum, id
-            mollitia consequuntur, excepturi delectus veritatis accusantium, et
-            quas itaque ut similique reprehenderit fugit!
-          </p>
-        </div>
-      </div>
+    <div>
+      <input id="password" type="password" placeholder="Password...">
     </div>
+    <div>
+      <button id="sign-in">Sign In/Register</button>
+      <button id="sign-out">Sign Out</button>
+    </div>
+  </form>
 
-    <button type="button" class="btn btn-dark-green">Dark-green</button> -->
+  <!--Include firebase.js  -->
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  
+  <!--Configure firebase-->
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBq3Ox79Bh5Kg02e1N9L4nIzrUjN6Gb5dw",
+      authDomain: "tosserauth.firebaseapp.com",
+      databaseURL: "https://tosserauth.firebaseio.com",
+      projectId: "tosserauth",
+      storageBucket: "tosserauth.appspot.com",
+      messagingSenderId: "988452970793",
+      appId: "1:988452970793:web:7c78d4059856ef83"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  
+  <!--Handle page events-->
+  <script>    
+    document.querySelector('#sign-in').addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var email = document.querySelector('#email').value;
+      var password = document.querySelector('#password').value
+      var credential = firebase.auth.EmailAuthProvider.credential(email, password);
+      var auth = firebase.auth();
+      var currentUser = auth.currentUser;
+      
+      // Step 2
+      //  Get a credential with firebase.auth.emailAuthProvider.credential(emailInput.value, passwordInput.value)
+      //  If there is no current user, log in with auth.signInWithCredential(credential)
+      //  If there is a current user an it's anonymous, atttempt to link the new user with firebase.auth().currentUser.link(credential) 
+      //  The user link will fail if the user has already been created, so catch the error and sign in.
+    });
+    
+    document.querySelector('#sign-out').addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      firebase.auth().signOut();
+    });
+  </script>
 
-    <!-- /Start your project here-->
+</body>
 
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-    ></script>
-    <!-- Bootstrap tooltips -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
-    ></script>
-    <!-- Bootstrap core JavaScript -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
-    ></script>
-    <!-- MDB core JavaScript -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/js/mdb.min.js"
-    ></script>
-  </body>
 </html>
+
