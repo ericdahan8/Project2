@@ -36,7 +36,13 @@
     </div>
   </form>
 
+  <div id = "adminquestions">
+    <p>This is where the text will go with log-in</p>
+  </div>
+
   <script>
+
+document.getElementById('adminquestions').style.visibility = 'hidden';
 
 document.querySelector('#sign-in').addEventListener('click', function(e) {
       e.preventDefault();
@@ -57,7 +63,8 @@ document.querySelector('#sign-in').addEventListener('click', function(e) {
   console.log('sign in error', error)
 
   if (!error) {
-    console.log ('Logged in')
+    console.log ('Logged in');
+    document.getElementById('adminquestions').style.visibility = 'visible';
   }
 })
       }
