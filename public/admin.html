@@ -2,10 +2,28 @@
 
 <head>
   <title>Authentication</title>
+   <!--Include firebase.js  -->
+   <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+  
+   <!--Configure firebase-->
+   <script>
+     // Your web app's Firebase configuration
+     var config = {
+       apiKey: "AIzaSyBq3Ox79Bh5Kg02e1N9L4nIzrUjN6Gb5dw",
+       authDomain: "tosserauth.firebaseapp.com",
+       databaseURL: "https://tosserauth.firebaseio.com",
+       projectId: "tosserauth",
+       storageBucket: "tosserauth.appspot.com",
+       messagingSenderId: "988452970793",
+       appId: "1:988452970793:web:7c78d4059856ef83"
+     };
+     // Initialize Firebase
+     firebase.initializeApp(config);
+   </script>
 </head>
 
 <body>
-  <form>
+  <form id="app">
     <div>
       <input id="email" type="text" placeholder="Email...">
     </div>
@@ -18,28 +36,9 @@
     </div>
   </form>
 
-  <!--Include firebase.js  -->
-  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-  
-  <!--Configure firebase-->
   <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyBq3Ox79Bh5Kg02e1N9L4nIzrUjN6Gb5dw",
-      authDomain: "tosserauth.firebaseapp.com",
-      databaseURL: "https://tosserauth.firebaseio.com",
-      projectId: "tosserauth",
-      storageBucket: "tosserauth.appspot.com",
-      messagingSenderId: "988452970793",
-      appId: "1:988452970793:web:7c78d4059856ef83"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
-  
-  <!--Handle page events-->
-  <script>    
-    document.querySelector('#sign-in').addEventListener('click', function(e) {
+
+document.querySelector('#sign-in').addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       var email = document.querySelector('#email').value;
@@ -47,20 +46,66 @@
       var credential = firebase.auth.EmailAuthProvider.credential(email, password);
       var auth = firebase.auth();
       var currentUser = auth.currentUser;
+
+      if(!email || !password) {
+        alert('email and password required')
+      } else {
+        console.log('User: ' + email + password)
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
+  varErrorCode = error.varErrorCode
+  var errorMessage = error.message;
+  console.log('sign in error', error)
+
+  if (!error) {
+    console.log ('Logged in')
+  }
+})
+      }
       
-      // Step 2
-      //  Get a credential with firebase.auth.emailAuthProvider.credential(emailInput.value, passwordInput.value)
-      //  If there is no current user, log in with auth.signInWithCredential(credential)
-      //  If there is a current user an it's anonymous, atttempt to link the new user with firebase.auth().currentUser.link(credential) 
-      //  The user link will fail if the user has already been created, so catch the error and sign in.
+
     });
-    
-    document.querySelector('#sign-out').addEventListener('click', function(e) {
+
+//Sign in useer
+
+document.querySelector('#sign-out').addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       firebase.auth().signOut();
+      alert('You are signed out')
     });
+
+
   </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 
