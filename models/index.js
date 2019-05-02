@@ -21,10 +21,10 @@ const db = {};
 //);
 
 let sequelize;
-sequelize = new Sequelize(System.getenv("database"), System.getenv("username"), System.getenv("password"), 
+sequelize = new Sequelize(process.env.database, process.env.username, process.env.password, 
     {
-      host: System.getenv("host"),
-      dialect: System.getenv("dialect")
+      host: process.env.host,
+      dialect: process.env.dialect
     });
 
 fs.readdirSync(__dirname)
