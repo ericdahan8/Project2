@@ -28,14 +28,14 @@ require("./routes/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-// if (process.env.ENV === "PRODUCTION") {
-//   app.listen(PORT, function() {
-//     console.log("App listening on PORT " + PORT);
-//   });
-// } else {
+if (process.env.ENV === "production") {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+} else {
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 });
-//}
+}
