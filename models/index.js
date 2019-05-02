@@ -9,16 +9,23 @@ const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
 //change this to dot_env later:
+//let sequelize;
+//sequelize = new Sequelize(
+//  "ilgd6w3fv2b1hprm",
+//  "xfwtxxtle8ag4noj",
+//  "wiycii6vuedplk2b",
+//  {
+//    host: "wftuqljwesiffol6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+//    dialect: "mysql"
+//  }
+//);
+
 let sequelize;
-sequelize = new Sequelize(
-  "ilgd6w3fv2b1hprm",
-  "xfwtxxtle8ag4noj",
-  "wiycii6vuedplk2b",
-  {
-    host: "wftuqljwesiffol6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    dialect: "mysql"
-  }
-);
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
 fs.readdirSync(__dirname)
   .filter(file => {
