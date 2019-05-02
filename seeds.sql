@@ -3,7 +3,7 @@ USE `ilgd6w3fv2b1hprm`;
 TRUNCATE TABLE categories;
 INSERT INTO categories (name, imagelink, description) 
     VALUES 
-        ("Metal", "https://i.imgur.com/zmvwZ3C.jpg", 
+        ("Metal", "../images/metal.jpg", 
         "<p>Metal Recyclables Include:</p>
         <ul>
             <li>metal cans (soup, pet food, empty aerosol cans, empty paint cans, etc.)</li>
@@ -23,5 +23,6 @@ INSERT INTO recyclables (itemname, isRecyclable, categoryID)
     VALUES
         ("aluminium", true, 7),
         ("coke can", true, 7),
-        ("beer bottle", true, 5)
+        ("beer bottle", true, 5),
+        ("soup can", true, 1)
         ;
