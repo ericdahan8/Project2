@@ -12,7 +12,7 @@
         <h2>To Toss or Not To Toss...?</h2>
     </header>
     <main>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit molestiae itaque facere totam saepe tempore esse temporibus, quae reprehenderit aliquid iusto ea laborum, iure eligendi odio exercitationem sapiente illum quos.</p>
+        <p>Take a picture and find out.</p>
         
         
         <video controls></video>
@@ -100,7 +100,7 @@
             mediaRecorder.onstop = (ev)=>{
                 let blob = new Blob(chunks, { 'type' : 'video/mp4;' });
                 chunks = [];
-                let videoURL = window.URL.createObjectURL(blob);
+                let videoURL = window.URL.eateObjectURL(blob);
                 vidSave.src = videoURL;
             }
         })
