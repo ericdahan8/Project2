@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ericdahan8/Project2#readme",
   "dependencies": {
+    "clarifai": "^2.9.0",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "geolocation": "^0.2.0",
