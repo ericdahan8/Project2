@@ -1,6 +1,7 @@
 USE `ilgd6w3fv2b1hprm`;
 
 TRUNCATE TABLE categories;
+TRUNCATE TABLE recyclables;
 INSERT INTO categories (name, imagelink, description) 
     VALUES 
         ("Metal", "../images/metal.jpg", 
@@ -25,7 +26,7 @@ INSERT INTO categories (name, imagelink, description)
         ("Plastic", "../images/plastic.jpg", "
         <p>Plastic Recyclables Include:</p>
         <ul>
-            <li>plastic bottles, jugs, and jars/li>
+            <li>plastic bottles, jugs, and jars</li>
             <li>rigid plastic caps and lids</li>
             <li>rigid plastic food containers (yogurt, deli, hummus, dairy tubs, cookie tray inserts, “clamshell” containers, other rigid plastic take-out containers)</li>
             <li>rigid plastic non-food containers (such as “blister-pack” and “clamshell” consumer packaging, acetate boxes)</li>
@@ -72,13 +73,107 @@ INSERT INTO categories (name, imagelink, description)
             <li>“Tanglers” (such as cables, wires, cords, hoses)</li>
             <li>Rigid plastic containers containing medical “sharps” or disposable razors</li>
             <li>Containers that held dangerous or corrosive chemicals</li>
-       </ul>")
+       </ul>"),
+       
+        ("Trash", "", "<h1>THROW THIS IN THE TRASH</h1>"
+        "<p>This is non-recyclable!!</p>"
+        
+       )
        
         ;
 INSERT INTO recyclables (itemname, isRecyclable, categoryID) 
     VALUES
-        ("aluminium", true, 7),
-        ("coke can", true, 7),
+        ("aluminium", true, 1),
+        ("coke can", true, 1),
         ("beer bottle", true, 5),
-        ("soup can", true, 1)
+        ("soup can", true, 1),
+        ("water bottle", true, 3),
+        ("coffee cup", false, 7),
+        ("laptop", true, 6),
+        ("batteries", true, 6),
+        ("aluminium foil", true, 1),
+        ("tray", true, 1),
+        ("wires", true, 1),
+        ("pots", true, 1),
+        ("tools", true, 1),
+        ("vehicle", true, 1),
+        ("tin", true, 1),
+        ("carboard box", true, 2),
+        ("pizza box", true, 2),
+        ("paper cups", true, 2),
+        ("egg carton", true, 2),
+        ("carton", true, 2),
+        ("bottle of water", true, 3),
+        ("container", true, 3),
+        ("caps", true, 3),
+        ("lids", true, 3),
+        ("hummus", true, 3),
+        ("buckets", true, 3),
+        ("straw", false, 7),
+        ("poland spring", true, 3),
+        ("dasani", true, 3),
+        ("fiji water", true, 3),
+        ("essentia", true, 3),
+        ("newspaper", true, 4),
+		("magazines", true, 4),
+        ("phone book", true, 4),
+        ("catalog", true, 4),
+        ("paper", true, 4),
+        ("mail", true, 4),
+        ("envelope", true, 4),
+        ("receipts", true, 4),
+        ("paper bag", false, 7),
+        ("wrapping paper", true, 4),
+        ("books", true, 4),
+        ("glass", true, 5),
+        ("glass", true, 5),
+        ("glass bottle", true, 5),
+        ("glass jar", true, 5),
+        ("mac", true, 6),
+        ("dell", true, 6),
+        ("electronics", true, 6),
+        ("mobile", true, 6),
+        ("phone", true, 6),
+        ("mobile phone", true, 6),
+        ("pens", true, 6),
+        ("napkins", true, 6),
+        ("paper towel", true, 6),
+        ("tissues", true, 6),
+        ("printer", true, 6),
+        ("printer cartridge", true, 6),
+        ("light bulb", true, 6),
+        ("mirrors", true, 6),
+        ("ceramic", true, 6),
+        ("window blinds", true, 6),
+        ("foam", false, 7),
+        ("toothpaste", true, 6),
+        ("lotion", true, 6),
+        ("cosmetic", true, 6),
+        ("football", true, 6),
+        ("basketball", true, 6),
+        ("soccer ball", true, 6),
+        ("lighters", true, 6),
+        ("cigarette lighter", true, 6),
+        ("gas lighter", true, 6),
+        ("markers", true, 6),
+        ("cassette", true, 6),
+        ("VHS tape", true, 6),
+        ("cable", true, 6),
+        ("hose", true, 6),
+        ("razors", true, 6),
+        ("chemicals", true, 6),
+        ("corrosive", true, 6),
+        ("plastic film", false, 7),
+        ("coded paper", false, 7),
+        ("soiled paper", false, 7),
+        ("dirty paper", false, 7),
+        ("food scraps", false, 7),
+        ("furniture", false, 7),
+        ("car battery", true, 6),
+        ("alkaline battery", false, 7),
+        ("battery", true, 6),
+        ("plastic bottle", true, 3),
+        ("latex", false, 7),
+        ("used paper", true, 4)
+        
         ;
