@@ -28,20 +28,29 @@
 </head>
 
 <body>
+   
+        <div class="card">
+            <div class="card-body mx-auto">
   <form id="app">
     <div>
       <input id="email" type="text" placeholder="Email...">
     </div>
+    <br>
     <div>
       <input id="password" type="password" placeholder="Password...">
     </div>
+    <br>
     <div>
       <button id="sign-in">Sign In/Register</button>
       <button id="sign-out">Sign Out</button>
     </div>
   </form>
+</div>
+</div>
 
   <div id = "adminquestions">
+      <div class="card">
+          <div class="card-body mx-auto">
    <p> Pick your category to add </p>
    <div class="radio">
       <label><input type="radio" name="optradio">Metal</label>
@@ -70,6 +79,8 @@
             <div>
             <button id="sign-out">Submit</button>
             </div>
+            </div>
+            </div>
   </div>
 
   <script>
@@ -87,9 +98,10 @@ document.querySelector('#sign-in').addEventListener('click', function(e) {
 
       if(!email || !password) {
         alert('email and password required')
-      } else {
+      } else  {
         console.log('User: ' + email + password)
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
+          document.getElementById('adminquestions').style.visibility = 'visible';
   varErrorCode = error.varErrorCode
   var errorMessage = error.message;
   console.log('sign in error', error);
@@ -100,8 +112,7 @@ document.querySelector('#sign-in').addEventListener('click', function(e) {
 })
       }
       
-      document.getElementById('adminquestions').style.visibility = 'visible';
-  
+      
     });
 
 //Sign in useer
