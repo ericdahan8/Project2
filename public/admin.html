@@ -1,173 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Material Design Bootstrap</title>
+<html>
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    />
-    <!-- Bootstrap core CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- Material Design Bootstrap -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css"
-      rel="stylesheet"
-    />
-    <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet" />
-    <!---CSS link--->
-    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
-  </head>
+<head>
+  <title>Authentication</title>
+   <!--Include firebase.js  -->
+   <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+  
+   <!--Configure firebase-->
+   <script>
+     // Your web app's Firebase configuration
+     var config = {
+       apiKey: "AIzaSyBq3Ox79Bh5Kg02e1N9L4nIzrUjN6Gb5dw",
+       authDomain: "tosserauth.firebaseapp.com",
+       databaseURL: "https://tosserauth.firebaseio.com",
+       projectId: "tosserauth",
+       storageBucket: "tosserauth.appspot.com",
+       messagingSenderId: "988452970793",
+       appId: "1:988452970793:web:7c78d4059856ef83"
+     };
+     // Initialize Firebase
+     firebase.initializeApp(config);
+   </script>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <body>
-    <!-- Start your project here-->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="#">
-        <img src="../images/logo.png" height="30" alt="mdb logo" />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="../home.html"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../info.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../camera.html">Capture</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../admin.html">Admin</a>
-          </li>
-        </ul>
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+   
+        <div class="card">
+            <div class="card-body mx-auto">
+  <form id="app">
+    <div>
+      <input id="email" type="text" placeholder="Email...">
+    </div>
+    <br>
+    <div>
+      <input id="password" type="password" placeholder="Password...">
+    </div>
+    <br>
+    <div>
+      <button id="sign-in">Sign In/Register</button>
+      <button id="sign-out">Sign Out</button>
+    </div>
+  </form>
+</div>
+</div>
+
+  <div id = "adminquestions">
+      <div class="card">
+          <div class="card-body mx-auto">
+   <p> Pick your category to add </p>
+   <div class="radio">
+      <label><input type="radio" name="optradio">Metal</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="optradio">Cardboard</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="optradio" >Plastic</label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" name="optradio" >Mixed Paper</label>
       </div>
-    </nav>
-    <br />
-
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <!-- Default form login -->
-          <form
-            class="text-center border p-3"
-            style="background-color: #8abd30"
-          >
-            <p class="h4 mb-4" style="color: #42210B">Sign in (Admin Only)</p>
-
-            <!-- Email -->
-            <input
-              type="email"
-              id="defaultLoginFormEmail"
-              class="form-control mb-4"
-              placeholder="E-mail"
-            />
-
-            <!-- Password -->
-            <input
-              type="password"
-              id="defaultLoginFormPassword"
-              class="form-control mb-4"
-              placeholder="Password"
-            />
-
-            <div class="d-flex justify-content-around">
-              <div>
-                <!-- Remember me -->
-                <div class="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="defaultLoginFormRemember"
-                  />
-                  <label
-                    class="custom-control-label"
-                    for="defaultLoginFormRemember"
-                    >Remember me</label
-                  >
-                </div>
-              </div>
-              <div>
-                <!-- Forgot password -->
-                <a href="" style="color: #42210B">Forgot password?</a>
-              </div>
+      <div class="radio">
+          <label><input type="radio" name="optradio" >Glass</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio">Special Waste</label>
+          </div>
+          <div class="radio">
+              <label><input type="radio" name="optradio">Trash</label>
             </div>
+          <div>
+              <input id="add-rec" type="add-rec" placeholder="Add recyclable...">
+            </div>
+            <div>
+            <button id="sign-out">Submit</button>
+            </div>
+            </div>
+            </div>
+  </div>
 
-            <!-- Sign in button -->
-            <button class="btn-black btn-blo my-4" type="submit">
-              Sign in
-            </button>
+  <script>
 
-            <!-- Register -->
-            <p>
-              Not a member?
-              <a href="" style="color: #42210B;">Register</a>
-            </p>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- Default form login -->
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
-            optio molestiae necessitatibus illum similique? Deleniti earum, id
-            mollitia consequuntur, excepturi delectus veritatis accusantium, et
-            quas itaque ut similique reprehenderit fugit!
-          </p>
-        </div>
-      </div>
-    </div>
+document.getElementById('adminquestions').style.visibility = 'hidden';
 
-    <button type="button" class="btn btn-dark-green">Dark-green</button> -->
+document.querySelector('#sign-in').addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var email = document.querySelector('#email').value;
+      var password = document.querySelector('#password').value
+      var credential = firebase.auth.EmailAuthProvider.credential(email, password);
+      var auth = firebase.auth();
+      var currentUser = auth.currentUser;
 
-    <!-- /Start your project here-->
+      if(!email || !password) {
+        alert('email and password required')
+      } else  {
+        console.log('User: ' + email + password)
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
+          document.getElementById('adminquestions').style.visibility = 'visible';
+  varErrorCode = error.varErrorCode
+  var errorMessage = error.message;
+  console.log('sign in error', error);
 
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-    ></script>
-    <!-- Bootstrap tooltips -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
-    ></script>
-    <!-- Bootstrap core JavaScript -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
-    ></script>
-    <!-- MDB core JavaScript -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/js/mdb.min.js"
-    ></script>
-  </body>
+  
+   
+  
+})
+      }
+      
+      
+    });
+
+//Sign in useer
+
+document.querySelector('#sign-out').addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      firebase.auth().signOut();
+      document.getElementById('adminquestions').style.visibility = 'hidden';
+      alert('You are signed out')
+    });
+
+
+  </script>
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</body>
+
 </html>
+
