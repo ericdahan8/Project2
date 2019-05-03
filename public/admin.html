@@ -1,6 +1,24 @@
 <html>
 
+
+
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Tosser- Throwing away the concept of litter</title>
+  
+  
+  
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css" rel="stylesheet">
+
+
+
   <title>Authentication</title>
    <!--Include firebase.js  -->
    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
@@ -24,13 +42,48 @@
 
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<!---CSS link--->
+<link rel="stylesheet" type="text/css" href="../css/styles.css" />
 </head>
 
 <body>
+<!-- Start your project here-->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">
+      <img src="../images/logo.png" height="30" alt="mdb logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="../home.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../info.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../camera.html">Capture</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../admin.html">Admin</a>
+        </li>
+      </ul>
+    </div>
+
+
+  </nav>
+  <br>
+
+
+
    
-        <div class="card">
+        <div class="card" style="background-color: #8abd30; text-align: center;">
             <div class="card-body mx-auto">
+
+              <h1 style="color: White; text-align: center;">Admin Log in</h1>
   <form id="app">
     <div>
       <input id="email" type="text" placeholder="Email...">
@@ -40,16 +93,19 @@
       <input id="password" type="password" placeholder="Password...">
     </div>
     <br>
-    <div>
-      <button id="sign-in">Sign In/Register</button>
-      <button id="sign-out">Sign Out</button>
+    <div style="text-align:center;">
+      <!-----Sign Out-->
+      <button id="sign-out" type="button" class="btn btn-brown" style="float: right">Sign Out</button>
+      <!----Sign in-->
+      <button id="sign-in" type="button" class="btn btn-brown" style="float: right">Sign In/Register</button>
+      
     </div>
   </form>
 </div>
 </div>
 
   <div id = "adminquestions">
-      <div class="card">
+      <div class="card" style="background-color: #f2f4e6">
           <div class="card-body mx-auto">
    <p> Pick your category to add </p>
    <div class="radio">
