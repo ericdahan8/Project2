@@ -1,8 +1,4 @@
-body {
-  margin: 0px;
-  padding: 0px;
-  background: #000;
-}
+
 
 #vid_container {
   position: fixed;
@@ -97,9 +93,3 @@ button {
   background-image: url("img/ic_camera_front_white_36px.svg");
 }
 
-.navbar {
-  background-color: #8abd30;
-}
-.navbar-toggler-icon {
-  border: solid white;
-}
