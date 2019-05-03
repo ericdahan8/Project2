@@ -1,123 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>MediaCapture and Streams API</title>
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="/public/css/index.css">
-</head>
-<body>
+    <meta name="viewport" content="width=device-width" />
+
+    <!----CSS-->
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Material Design Bootstrap -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Start Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">
+        <img src="../images/logo.png" height="30" alt="mdb logo" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../info.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../camera.html">Capture</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../admin.html">Admin</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--End Navbar-->
     <header>
-        <h1>TosserCam</h1>
-        <h2>To Toss or Not To Toss...?</h2>
+      <h1 style="text-align: Center;">TosserCam</h1>
+      <h2 style="text-align: Center;">To Toss or Not To Toss...?</h2>
     </header>
     <main>
-        <p>Take a picture and find out.</p>
-        
-        
-        <video controls></video>
-        
-        <p><button id="btnStart">START RECORDING</button><br/>
-            <button id="btnStop">STOP RECORDING</button></p>
+      
+      <p>Take a picture and find out.</p>
 
+      <p style="text-align: Center;">
+       Capture your trash below and find out where you can recycle it!
+      </p>
 
-        <video id="vid2" controls></video>
-               
-        <!-- could save to canvas and do image manipulation and saving too -->
-    </main>    
+      <video controls playsinline></video>
+<div style="text-align: center;">
+      <p>
+        <button id="btnStart" type="button" class="btn btn-success">
+          Start
+        </button>
+    </div>
+        <br />
+        <br />
+        <br />
+        <div style="text-align: center;">
+        <button id="btnStop" type="button" class="btn btn-danger">
+          Stop
+        </button>
+      </p>
+      </div>
+      <br />
+      <br />
+      <br>
+      <br>
+
+      <video id="vid2" controls></video>
+
+      <!-- could save to canvas and do image manipulation and saving too -->
+    </main>
     <script>
         
-        let constraintObj = { 
-            audio: false, 
-            video: { 
-                facingMode: "user", 
-                width: { min: 640, ideal: 1280, max: 1920 },
-                height: { min: 480, ideal: 720, max: 1080 } 
-            } 
-        }; 
-        // width: 1280, height: 720  -- preference only
-        // facingMode: {exact: "user"}
-        // facingMode: "environment"
-        
-        //handle older browsers that might implement getUserMedia in some way
-        if (navigator.mediaDevices === undefined) {
-            navigator.mediaDevices = {};
-            navigator.mediaDevices.getUserMedia = function(constraintObj) {
-                let getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-                if (!getUserMedia) {
-                    return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
-                }
-                return new Promise(function(resolve, reject) {
-                    getUserMedia.call(navigator, constraintObj, resolve, reject);
-                });
-            }
-        }else{
-            navigator.mediaDevices.enumerateDevices()
-            .then(devices => {
-                devices.forEach(device=>{
-                    console.log(device.kind.toUpperCase(), device.label);
-                    //, device.deviceId
-                })
-            })
-            .catch(err=>{
-                console.log(err.name, err.message);
-            })
-        }
-        navigator.mediaDevices.getUserMedia(constraintObj)
-        .then(function(mediaStreamObj) {
-            //connect the media stream to the first video element
-            let video = document.querySelector('video');
-            if ("srcObject" in video) {
-                video.srcObject = mediaStreamObj;
-            } else {
-                //old version
-                video.src = window.URL.createObjectURL(mediaStreamObj);
-            }
-            
-            video.onloadedmetadata = function(ev) {
-                //show in the video element what is being captured by the webcam
-                video.play();
-            };
-            
-            //add listeners for saving video/audio
-            let start = document.getElementById('btnStart');
-            let stop = document.getElementById('btnStop');
-            let vidSave = document.getElementById('vid2');
-            let mediaRecorder = new MediaRecorder(mediaStreamObj);
-            let chunks = [];
-            
-            start.addEventListener('click', (ev)=>{
-                mediaRecorder.start();
-                console.log(mediaRecorder.state);
-            })
-            stop.addEventListener('click', (ev)=>{
-                mediaRecorder.stop();
-                console.log(mediaRecorder.state);
-            });
-            mediaRecorder.ondataavailable = function(ev) {
-                chunks.push(ev.data);
-            }
-            mediaRecorder.onstop = (ev)=>{
-                let blob = new Blob(chunks, { 'type' : 'video/mp4;' });
-                chunks = [];
-                let videoURL = window.URL.eateObjectURL(blob);
-                vidSave.src = videoURL;
-            }
-        })
-        .catch(function(err) { 
-            console.log(err.name, err.message); 
-        });
-        
-        /*********************************
-        getUserMedia returns a Promise
-        resolve - returns a MediaStream Object
-        reject returns one of the following errors
-        AbortError - generic unknown cause
-        NotAllowedError (SecurityError) - user rejected permissions
-        NotFoundError - missing media track
-        NotReadableError - user permissions given but hardware/OS error
-        OverconstrainedError - constraint video settings preventing
-        TypeError - audio: false, video: false
-        *********************************/
-    </script>
-</body>
+      let constraintObj = { 
+          audio: false, 
+          video: { 
+              facingMode: "user", 
+              width: { min: 640, ideal: 1280, max: 1920 },
+              height: { min: 480, ideal: 720, max: 1080 } 
+          } 
+      }; 
+      // width: 1280, height: 720  -- preference only
+      // facingMode: {exact: "user"}
+      // facingMode: "environment"
+      
+      //handle older browsers that might implement getUserMedia in some way
+      if (navigator.mediaDevices === undefined) {
+          navigator.mediaDevices = {};
+          navigator.mediaDevices.getUserMedia = function(constraintObj) {
+              let getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+              if (!getUserMedia) {
+                  return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+              }
+              return new Promise(function(resolve, reject) {
+                  getUserMedia.call(navigator, constraintObj, resolve, reject);
+              });
+          }
+      }else{
+          navigator.mediaDevices.enumerateDevices()
+          .then(devices => {
+              devices.forEach(device=>{
+                  console.log(device.kind.toUpperCase(), device.label);
+                  //, device.deviceId
+              })
+          })
+          .catch(err=>{
+              console.log(err.name, err.message);
+          })
+      }
+      navigator.mediaDevices.getUserMedia(constraintObj)
+      .then(function(mediaStreamObj) {
+          //connect the media stream to the first video element
+          let video = document.querySelector('video');
+          if ("srcObject" in video) {
+              video.srcObject = mediaStreamObj;
+          } else {
+              //old version
+              video.src = window.URL.createObjectURL(mediaStreamObj);
+          }
+          
+          video.onloadedmetadata = function(ev) {
+              //show in the video element what is being captured by the webcam
+              video.play();
+          };
+          
+          //add listeners for saving video/audio
+          let start = document.getElementById('btnStart');
+          let stop = document.getElementById('btnStop');
+          let vidSave = document.getElementById('vid2');
+          let mediaRecorder = new MediaRecorder(mediaStreamObj);
+          let chunks = [];
+          
+          start.addEventListener('click', (ev)=>{
+              mediaRecorder.start();
+              console.log(mediaRecorder.state);
+          })
+          stop.addEventListener('click', (ev)=>{
+              mediaRecorder.stop();
+              console.log(mediaRecorder.state);
+          });
+          mediaRecorder.ondataavailable = function(ev) {
+              chunks.push(ev.data);
+          }
+          mediaRecorder.onstop = (ev)=>{
+              let blob = new Blob(chunks, { 'type' : 'video/mp4;' });
+              chunks = [];
+              let videoURL = window.URL.eateObjectURL(blob);
+              vidSave.src = videoURL;
+          }
+      })
+      .catch(function(err) { 
+          console.log(err.name, err.message); 
+      });
+      
+      /*********************************
+      getUserMedia returns a Promise
+      resolve - returns a MediaStream Object
+      reject returns one of the following errors
+      AbortError - generic unknown cause
+      NotAllowedError (SecurityError) - user rejected permissions
+      NotFoundError - missing media track
+      NotReadableError - user permissions given but hardware/OS error
+      OverconstrainedError - constraint video settings preventing
+      TypeError - audio: false, video: false
+      *********************************/
+  </script>
+  </body>
+</html>
