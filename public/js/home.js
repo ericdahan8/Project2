@@ -10,7 +10,7 @@ $(document).ready(function () {
         $.get("/api/recyclables/" + searchTerm, function (data) {
             if (data) {
                 console.log(data.categoryID);
-                window.location.href = "/result?cat_id=" + data.categoryID;
+                //window.location.href = "/result?cat_id=" + data.categoryID;
             }
             else {
                 errorMessage.text("This item was not found in our database!");
