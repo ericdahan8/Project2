@@ -49,7 +49,6 @@ $(document).ready(function (event) {
     deleteButton.on("click", function (event) {
         event.preventDefault();
         deleteRecyclable(deleteDDL.val());
-        fetchDeleteDDL();
     });
 
     function deleteRecyclable(id) {
@@ -58,7 +57,7 @@ $(document).ready(function (event) {
             url: "/api/recyclables/" + id
         })
             .then(function () {
-                getPosts(postCategorySelect.val());
+                fetchDeleteDDL();
             });
     }
 
