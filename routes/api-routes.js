@@ -20,6 +20,18 @@ module.exports = function(app) {
     });
   });
 
+  app.put("/api/categories", function(req, res) {
+    db.categories.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(results) {
+      res.json(results);
+    });
+  });
+
   app.get("/api/recyclables", function(req, res) {
     db.recyclables.findAll().then(function(results) {
       res.json(results);
