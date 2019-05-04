@@ -11,7 +11,6 @@ $(document).ready(function() {
   }
 
   // Getting jQuery references
-  var name = $("#category-name");
   var img = $("#category-img");
   var desc = $("#category-description");
 

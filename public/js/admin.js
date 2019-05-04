@@ -1,8 +1,14 @@
 $(document).ready(function (event) {
     var postButton = $("#post-button");
+    var updateButton = $("#update-button");
+    var deleteButton = $("#delete-button");
     var categoryDDL = $("#category-ddl")
+    var categoryDDL2 = $("#category-ddl2")
+    var deleteDDL = $("#delete-ddl");
     var postMessage = $("#post-message");
     var recyclableInput = $("#add-rec");
+
+    fetchDeleteDDL();
 
     postButton.on("click", function (event) {
         event.preventDefault();
@@ -21,4 +27,38 @@ $(document).ready(function (event) {
             recyclableInput.val("");
         });
     }
+
+    updateButton.on("click", function (event) {
+        event.preventDefault();
+        window.location.href = "/update?cat_id=" + categoryDDL2.val();
+    });
+
+    function fetchDeleteDDL(){
+        deleteDDL.empty();
+        $.get("/api/recyclables/", function (data) {
+            if (data) {
+                console.log(data);
+                for (let i = 0; i < data.length; i++) {
+                    deleteDDL.append($('<option></option>').val(data[i].id).html(data[i].itemname));
+                }
+            }
+        });
+    }
+    
+    deleteButton.on("click", function (event) {
+        event.preventDefault();
+        deleteRecyclable(deleteDDL.val());
+        fetchDeleteDDL();
+    });
+
+    function deleteRecyclable(id) {
+        $.ajax({
+            method: "DELETE",
+            url: "/api/recyclables/" + id
+        })
+            .then(function () {
+                getPosts(postCategorySelect.val());
+            });
+    }
+
 });
