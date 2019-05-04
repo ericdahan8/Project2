@@ -3,52 +3,53 @@
 
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Tosser- Throwing away the concept of litter</title>
-  
-  
-  
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Tosser- Throwing away the concept of litter</title>
+
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css" rel="stylesheet">
 
 
 
   <title>Authentication</title>
-   <!--Include firebase.js  -->
-   <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
-  
-   <!--Configure firebase-->
-   <script>
-     // Your web app's Firebase configuration
-     var config = {
-       apiKey: "AIzaSyBq3Ox79Bh5Kg02e1N9L4nIzrUjN6Gb5dw",
-       authDomain: "tosserauth.firebaseapp.com",
-       databaseURL: "https://tosserauth.firebaseio.com",
-       projectId: "tosserauth",
-       storageBucket: "tosserauth.appspot.com",
-       messagingSenderId: "988452970793",
-       appId: "1:988452970793:web:7c78d4059856ef83"
-     };
-     // Initialize Firebase
-     firebase.initializeApp(config);
-   </script>
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--Include firebase.js  -->
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
 
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<!---CSS link--->
-<link rel="stylesheet" type="text/css" href="../css/styles.css" />
+  <!--Configure firebase-->
+  <script>
+    // Your web app's Firebase configuration
+    var config = {
+      apiKey: "AIzaSyBq3Ox79Bh5Kg02e1N9L4nIzrUjN6Gb5dw",
+      authDomain: "tosserauth.firebaseapp.com",
+      databaseURL: "https://tosserauth.firebaseio.com",
+      projectId: "tosserauth",
+      storageBucket: "tosserauth.appspot.com",
+      messagingSenderId: "988452970793",
+      appId: "1:988452970793:web:7c78d4059856ef83"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(config);
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!---CSS link--->
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" />
 </head>
 
 <body>
-<!-- Start your project here-->
-<nav class="navbar navbar-expand-lg navbar-dark">
+  <!-- Start your project here-->
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="#">
       <img src="../images/logo.png" height="30" alt="mdb logo" />
     </a>
@@ -79,71 +80,67 @@
 
 
 
-   
-        <div class="card" style="background-color: #8abd30; text-align: center;">
-            <div class="card-body mx-auto">
 
-              <h1 style="color: White; text-align: center;">Admin Log in</h1>
-  <form id="app">
-    <div>
-      <input id="email" type="text" placeholder="Email...">
-    </div>
-    <br>
-    <div>
-      <input id="password" type="password" placeholder="Password...">
-    </div>
-    <br>
-    <div style="text-align:center;">
-      <!-----Sign Out-->
-      <button id="sign-out" type="button" class="btn btn-brown" style="float: right">Sign Out</button>
-      <!----Sign in-->
-      <button id="sign-in" type="button" class="btn btn-brown" style="float: right">Sign In/Register</button>
-      
-    </div>
-  </form>
-</div>
-</div>
+  <div class="card" style="background-color: #8abd30; text-align: center;">
+    <div class="card-body mx-auto">
 
-  <div id = "adminquestions">
-      <div class="card" style="background-color: #f2f4e6">
-          <div class="card-body mx-auto">
-   <p> Pick your category to add </p>
-   <div class="radio">
-      <label><input type="radio" name="optradio">Metal</label>
-    </div>
-    <div class="radio">
-      <label><input type="radio" name="optradio">Cardboard</label>
-    </div>
-    <div class="radio">
-      <label><input type="radio" name="optradio" >Plastic</label>
-    </div>
-    <div class="radio">
-        <label><input type="radio" name="optradio" >Mixed Paper</label>
-      </div>
-      <div class="radio">
-          <label><input type="radio" name="optradio" >Glass</label>
+      <h1 style="color: White; text-align: center;">Admin Log in</h1>
+      <form id="app">
+        <div>
+          <input id="email" type="text" placeholder="Email...">
         </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio">Special Waste</label>
-          </div>
-          <div class="radio">
-              <label><input type="radio" name="optradio">Trash</label>
-            </div>
-          <div>
-              <input id="add-rec" type="add-rec" placeholder="Add recyclable...">
-            </div>
-            <div>
-            <button id="sign-out">Submit</button>
-            </div>
-            </div>
-            </div>
+        <br>
+        <div>
+          <input id="password" type="password" placeholder="Password...">
+        </div>
+        <br>
+        <div style="text-align:center;">
+          <!-----Sign Out-->
+          <button id="sign-out" type="button" class="btn btn-brown" style="float: right">Sign Out</button>
+          <!----Sign in-->
+          <button id="sign-in" type="button" class="btn btn-brown" style="float: right">Sign In/Register</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="adminquestions">
+    <div class="card" style="background-color: #f2f4e6">
+      <div class="card-body mx-auto">
+        <p> Pick your category to add </p>
+        <div>
+          <select id="category-ddl">
+            <option value="1" selected="selected">Metal</option>
+            <option value="2">Cardboard</option>
+            <option value="3">Plastic</option>
+            <option value="4">Mixed Paper</option>
+            <option value="5">Glass</option>
+            <option value="6">Special Waste</option>
+            <option value="7">Non-Recyclable Waste</option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <input id="add-rec" type="add-rec" placeholder="Add recyclable...">
+        </div>
+        <br>
+        <div>
+          <button id="post-button" type="button" class="btn btn-brown">Submit</button>
+        </div>
+        <br>
+        <div>
+          <h5 id="post-message"></h5>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
 
-document.getElementById('adminquestions').style.visibility = 'hidden';
+    document.getElementById('adminquestions').style.visibility = 'hidden';
 
-document.querySelector('#sign-in').addEventListener('click', function(e) {
+    document.querySelector('#sign-in').addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
       var email = document.querySelector('#email').value;
@@ -152,28 +149,24 @@ document.querySelector('#sign-in').addEventListener('click', function(e) {
       var auth = firebase.auth();
       var currentUser = auth.currentUser;
 
-      if(!email || !password) {
+      if (!email || !password) {
         alert('email and password required')
-      } else  {
+      } else {
         console.log('User: ' + email + password)
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
           document.getElementById('adminquestions').style.visibility = 'visible';
-  varErrorCode = error.varErrorCode
-  var errorMessage = error.message;
-  console.log('sign in error', error);
-
-  
-   
-  
-})
+          varErrorCode = error.varErrorCode
+          var errorMessage = error.message;
+          console.log('sign in error', error);
+        })
       }
-      
-      
+
+
     });
 
-//Sign in useer
+    //Sign in useer
 
-document.querySelector('#sign-out').addEventListener('click', function(e) {
+    document.querySelector('#sign-out').addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
       firebase.auth().signOut();
@@ -183,14 +176,18 @@ document.querySelector('#sign-out').addEventListener('click', function(e) {
 
 
   </script>
-  
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="js/admin.js" type="text/javascript"></script>
 </body>
 </body>
 
 </html>
-
