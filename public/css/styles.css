@@ -36,3 +36,7 @@ h2 {
 .navbar-toggler-icon {
   border: solid white;
 }
+
+.img-container{
+  text-align: center;
+}

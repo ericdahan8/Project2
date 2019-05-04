@@ -75,7 +75,7 @@ INSERT INTO categories (name, imagelink, description)
             <li>Containers that held dangerous or corrosive chemicals</li>
        </ul>"),
        
-        ("Trash", "", "<h1>THROW THIS IN THE TRASH</h1>"
+        ("Trash", "../images/waste.png", "<h1>THROW THIS IN THE TRASH</h1>"
         "<p>This is non-recyclable!!</p>"
         
        )
