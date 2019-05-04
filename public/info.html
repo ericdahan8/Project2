@@ -28,14 +28,15 @@
     <link href="css/style.css" rel="stylesheet" />
 
     <!---CSS link--->
-    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/info.css" />
   </head>
+  <a name="top"></a>
 
-  <body id="body">
+  <body id="body-info">
     <!-- Start your project here-->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="#">
-        <img src="../images/logo.png" height="30" alt="mdb logo" />
+        <img src="Images/logowhite2.png" height="30" alt="Tosser Logo" />
       </a>
       <button
         class="navbar-toggler"
@@ -56,10 +57,10 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../info.html">About</a>
+            <a class="nav-link" href="../info.html">Resources</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../camera.html">Capture</a>
+            <a class="nav-link" href="#">Capture</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../admin.html">Admin</a>
@@ -67,61 +68,159 @@
         </ul>
       </div>
     </nav>
+    <!--Filtered List-->
 
-    <!---Logo-->
+  
+     
+  
+   <div class="center">
+      <p class="text-center resources-title"> RESOURCES</p>
+      <br>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." class="text-center">
+   </div>
 
-    <div class="text-white text-center py-5 px-4 my-5">
-      <div>
-        <img src="../images/logowhite2.png" width="20%" />
-        <br />
-        <br />
+    <div class="container text-center mx-auto ">
+     
 
-        <p class="mx-5 mb-5">
-          We have consistently found that individuals are unaware of what can
-          ACTUALLY be recycled. Tosser was created to help reduce the levels of
-          poverty and cross-contaimination that exhists. With Tosser symmetrical
-          information on what and where to recycle has never been so simple.
-          Just enter your location and what your looking to recycle and let
-          tosser do the rest!
-        </p>
-        <div class="row">
-          <div class="col-12" style="text-align:center; width: 10px;">
-            <!-- Search form -->
-            <input
-              class="form-control"
-              type="text"
-              placeholder="Recycle Here"
-              aria-label="Search"
-              style=" border: solid  #42210B; text-align: center;"
-            />
+<ul id="myUL">
+
+    <li><a href="#" class="noshow">statistics</a>
+  
+      <div class="card mx-auto" style="width: 24rem;">
+          <div class="embed-responsive embed-responsive-16by9">
+              <iframe src="https://giphy.com/embed/m1qpP9JGNAbGU" width="480" height="293" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cheezburger-cute-dog-m1qpP9JGNAbGU">via GIPHY</a></p> </div>
+        <div class="card-body">
+          <h5 class="card-title">Statistics</h5>
+          <p class="card-text">The average person generates over 4 pounds of trash every day and about 1.5 tons of solid waste per year.</p>
+          <a href="https://www.dosomething.org/us/facts/11-facts-about-recycling" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    
+    </li>
+
+  <li><a href="#" class="noshow">trash</a>
+  
+    <div class="card mx-auto" style="width:24rem;">
+        <div class="embed-responsive embed-responsive-16by9">
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y6LzB6rMDtA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+
           </div>
-        </div>
-
-        <!---Search button-->
-        <button type="button" class="btn" style="background-color: #8abd30">
-          Recycle!
-        </button>
+      <div class="card-body">
+        <h5 class="card-title">Where Does Your Trash Go?</h5>
+        <p class="card-text">Did you ever wonder what happened to your trash?.</p>
+        <a href="https://www.youtube.com/watch?v=Y6LzB6rMDtA" class="btn btn-primary">Watch Here</a>
       </div>
     </div>
+  
+  </li>
 
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
-            optio molestiae necessitatibus illum similique? Deleniti earum, id
-            mollitia consequuntur, excepturi delectus veritatis accusantium, et
-            quas itaque ut similique reprehenderit fugit!
-          </p>
-        </div>
+  <li><a href="#" class="noshow">NYC recycling</a>
+  
+    <div class="card mx-auto" style="width: 24rem;">
+
+        <div class="embed-responsive embed-responsive-16by9">
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/HIHGKZL8_6Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+      
+      <div class="card-body">
+        <h5 class="card-title">How NYC Recycling Works</h5>
+        <p class="card-text">Municipal recycling in New York City is more complicated than the process in any other city in the world</p>
+        <a href="https://youtu.be/HIHGKZL8_6Q" class="btn btn-primary">Watch Here</a>
       </div>
     </div>
+  
+  </li>
 
-    <button type="button" class="btn btn-dark-green">Dark-green</button> -->
+  <li><a href="#" class="noshow">trash in the ocean</a>
+  
+    <div class="card mx-auto" style="width:24rem;">
+        <div class="embed-responsive embed-responsive-16by9">
 
-    <!-- /Start your project here-->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YFZS3Vh4lfI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+    </div>
+        <div class="card-body">
+        <h5 class="card-title">Trash in the Ocean</h5>
+        <p class="card-text">These plastic bottles illustrate how humans discard a shocking amount of plastic waste into the environment.</p>
+        <a href="https://youtu.be/YFZS3Vh4lfI" class="btn btn-primary">Watch Here</a>
+      </div>
+    </div>
+  
+  </li>
+
+  <li><a href="#" class="noshow">kids resources</a>
+  
+    <div class="card mx-auto" style="width: 24rem;">
+        <div class="embed-responsive embed-responsive-16by9">
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/6jQ7y_qQYUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+          
+        </div>
+      <div class="card-body">
+        <h5 class="card-title">Recycling for kids</h5>
+        <p class="card-text">Recycling for Kids | Recycling Plastic, Glass and Paper | Recycle Symbol</p>
+        <a href="https://youtu.be/6jQ7y_qQYUA" class="btn btn-primary">Watch Here</a>
+      </div>
+    </div>
+  
+  </li>
+
+ 
+
+  <li><a href="#" class="noshow">locations</a>
+  
+    <div class="card mx-auto" style="width: 24rem;">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe src="https://giphy.com/embed/xTiTnwGFn75N8bhRu0" width="480" height="405" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/helpsgood-2015-keep-america-beautiful-recycles-day-xTiTnwGFn75N8bhRu0">via GIPHY</a></p>
+        
+        </div>
+     
+      <div class="card-body">
+        <h5 class="card-title">Recycling Locations</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="https://www1.nyc.gov/nyc-resources/service/1239/residential-recycling" class="btn btn-primary">Find out More</a>
+      </div>
+    </div>
+  
+  </li>
+  
+</ul>
+
+
+
+</div>
+
+<a href="#top">Back to Top</a>
+
 
     <!-- SCRIPTS -->
+
+    <script>
+        function myFunction() {
+          // Declare variables
+          var input, filter, ul, li, selected, i, txtValue;
+          input = document.getElementById('myInput');
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName('li');
+        
+          // Loop through all list items, and hide those who don't match the search query
+          for (i = 0; i < li.length; i++) {
+            selected = li[i].getElementsByClassName("noshow")[0];
+            txtValue = selected.textContent || selected.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        </script>
+
+
     <!-- JQuery -->
     <script
       type="text/javascript"

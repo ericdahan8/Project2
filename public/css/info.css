@@ -1,0 +1,65 @@
+
+
+#body-info {
+    background-color: #f2f4e6;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+h2 {
+  position: absolute;
+  top: 70%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+  color: #ffd12a;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar {
+  background-color: #8abd30;
+}
+.navbar-toggler-icon {
+  border: solid white;
+}
+
+.main {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #f2f4e6
+}
+
+#myUL {
+    
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .center {
+    margin: auto;
+    width: 25rem;
+    padding: 20px;
+    
+  }
+
+  #myInput {
+    width: 100%;
+    margin: 0;
+    border: 2px solid green;
+  }
+
+  .noshow {
+    color: #f2f4e6;
+  }
+
+  .resources-title {
+    font-size: 60px;
+    color: #21618C  ;
+    font-weight: bolder;
+  }
+
+  .btn-primary {
+    background-color: blue;
+  }
