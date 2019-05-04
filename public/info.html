@@ -30,8 +30,9 @@
     <!---CSS link--->
     <link rel="stylesheet" type="text/css" href="../public/css/info.css" />
   </head>
+  <a name="top"></a>
 
-  <body id="body">
+  <body id="body-info">
     <!-- Start your project here-->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="#">
@@ -56,7 +57,7 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../info.html">About</a>
+            <a class="nav-link" href="../info.html">Resources</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Capture</a>
@@ -69,21 +70,40 @@
     </nav>
     <!--Filtered List-->
 
-    <div class="center">
-      <p class="mx-auto"></p> RESOURCES</p>
-     </div>
-
+  
+     
+  
    <div class="center">
+      <p class="text-center resources-title"> RESOURCES</p>
+      <br>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." class="text-center">
    </div>
 
-    <div class="container text-center ">
+    <div class="container text-center mx-auto ">
      
 
 <ul id="myUL">
+  <li><a href="#" class="noshow">Trash</a>
+  
+    <div class="card mx-auto" style="width:24rem;">
+        <div class="embed-responsive embed-responsive-16by9">
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y6LzB6rMDtA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+
+          </div>
+      <div class="card-body">
+        <h5 class="card-title">Where Does Your Trash Go?</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  
+  </li>
+
   <li><a href="#" class="noshow">Adele</a>
   
-    <div class="card mx-auto" style="width: 18rem;">
+    <div class="card mx-auto" style="width: 24rem;">
       <img class="card-img-top" src="..." alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
@@ -96,7 +116,7 @@
 
   <li><a href="#" class="noshow">Adele</a>
   
-    <div class="card mx-auto" style="width: 18rem;">
+    <div class="card mx-auto" style="width:24rem;">
       <img class="card-img-top" src="..." alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
@@ -109,7 +129,7 @@
 
   <li><a href="#" class="noshow">Adele</a>
   
-    <div class="card mx-auto" style="width: 18rem;">
+    <div class="card mx-auto" style="width: 24rem;">
       <img class="card-img-top" src="..." alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
@@ -122,7 +142,7 @@
 
   <li><a href="#" class="noshow">Adele</a>
   
-    <div class="card mx-auto" style="width: 18rem;">
+    <div class="card mx-auto" style="width: 24rem;">
       <img class="card-img-top" src="..." alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
@@ -135,7 +155,7 @@
 
   <li><a href="#" class="noshow">Adele</a>
   
-    <div class="card mx-auto" style="width: 18rem;">
+    <div class="card mx-auto" style="width: 24rem;">
       <img class="card-img-top" src="..." alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
@@ -145,34 +165,39 @@
     </div>
   
   </li>
-
-  <li><a href="#" class="noshow">Adele</a>
-  
-    <div class="card mx-auto" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  
-  </li>
-
- 
   
 </ul>
 
 
+
 </div>
 
-
-
-
-
+<a href="#top">Back to Top</a>
 
 
     <!-- SCRIPTS -->
+
+    <script>
+        function myFunction() {
+          // Declare variables
+          var input, filter, ul, li, selected, i, txtValue;
+          input = document.getElementById('myInput');
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName('li');
+        
+          // Loop through all list items, and hide those who don't match the search query
+          for (i = 0; i < li.length; i++) {
+            selected = li[i].getElementsByClassName("noshow")[0];
+            txtValue = selected.textContent || selected.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        </script>
 
 
     <!-- JQuery -->

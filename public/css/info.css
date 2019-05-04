@@ -1,20 +1,7 @@
-body {
-  /* background-image: linear-gradient(to right, #7bcc1f, white); */
-  background-color: #f2f4e6;
-  background-size: 100%;
-  width: 100%;
-  height: 100%;
-}
 
-.body {
-    background-color: #f2f4e6
-  background-size: 100%;
-  width: 100%;
-  height: 100%;
-}
 
-#body {
-    background-color: #f2f4e6
+#body-info {
+    background-color: #f2f4e6;
   background-size: 100%;
   width: 100%;
   height: 100%;
@@ -52,7 +39,7 @@ h2 {
 
   .center {
     margin: auto;
-    width: 50%;
+    width: 25rem;
     padding: 20px;
     
   }
@@ -61,4 +48,18 @@ h2 {
     width: 100%;
     margin: 0;
     border: 2px solid green;
+  }
+
+  .noshow {
+    color: #f2f4e6;
+  }
+
+  .resources-title {
+    font-size: 60px;
+    color: #21618C  ;
+    font-weight: bolder;
+  }
+
+  .btn-primary {
+    background-color: blue;
   }
