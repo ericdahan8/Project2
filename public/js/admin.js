@@ -25,6 +25,7 @@ $(document).ready(function (event) {
         $.post("/api/recyclables/", input, function (res) {
             postMessage.text("Added new entry to table: " + recyclableInput.val().trim());
             recyclableInput.val("");
+            fetchDeleteDDL();
         });
     }
 
