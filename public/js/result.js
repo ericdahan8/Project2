@@ -11,7 +11,6 @@ $(document).ready(function() {
   }
 
   // Getting jQuery references
-  var name = $("#category-name");
   var img = $("#category-img");
   var desc = $("#category-description");
 
@@ -19,7 +18,6 @@ $(document).ready(function() {
   function getCategory(id) {
     $.get("/api/categories/" + id, function(data) {
       if (data) {
-        name.text(data.name);
         img.attr("src", data.imagelink);
         desc.append(data.description);
       }

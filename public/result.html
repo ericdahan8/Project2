@@ -15,7 +15,7 @@
 <!--Start Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="#">
-      <img src="../Images/logo.png" height="30" alt="mdb logo" />
+      <img src="../images/logo.png" height="30" alt="mdb logo" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
           <a class="nav-link" href="../info.html">Resources</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Capture</a>
+          <a class="nav-link" href="../camera.html">Capture</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../admin.html">Admin</a>
@@ -43,9 +43,108 @@
 <!--End Navbar-->
 
         <h1 id="category-name"></h1>
-        <img style="width:100%" id="category-img" src=""></img>
+        <div class="img-container">
+          <img id="category-img" width="35%" src=""></img>
+        </div>
+        
         <hr>
         <p id="category-description"></p>
+
+        <!--Google Maps-->
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+    #map {
+      height: 50%;
+    }
+    /* Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+  </style>
+  <div id="map"></div>
+  <script>
+     function initMap(){
+      // Map options
+      var options = {
+        zoom:12,
+        center:{lat:40.809341,lng:-73.959217}
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Listen for click on map
+      google.maps.event.addListener(map, 'click', function(event){
+      });
+
+      var markers = [
+        {
+          coords:{lat:40.8016409,lng:-73.8728901},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>BRONX</h1>'
+        },
+        {
+          coords:{lat:40.7355908,lng:-73.9447831},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>BROOKLYN</h1>'
+        },
+        {
+          coords:{lat:40.7101691,lng:-73.9917315},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>MANHATTAN</h1>'
+        },
+        {
+          coords:{lat:40.5671181,lng:-74.1940205},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>QUEENS</h1>'
+        },
+        {
+          coords:{lat:42.8584,lng:-70.9300},
+          content:'<h1>STATEN ISLAND</h1>'
+        },
+        {
+          coords:{lat:42.7762,lng:-71.0773}
+        }
+      ];
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          //marker.addListener('click', function(){
+          //  infoWindow.open(map, marker);
+          //});
+        }
+      }
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlU8PIqQEAn9w9nbGZqHhJrGShTOvREtM&callback=initMap">
+  </script>
 
 
     <!-- Optional JavaScript -->

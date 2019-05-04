@@ -4,13 +4,21 @@ const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || "development";
+const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
-const sequelize = new Sequelize(
-  "ilgd6w3fv2b1hprm",
-  "xfwtxxtle8ag4noj",
-  "wiycii6vuedplk2b"
-);
+let sequelize;
+if (process.env.ENV === "PRODUCTION") {
+  sequelize = new Sequelize(process.env.database, process.env.username, process.env.password,
+    {
+      host: process.env.host,
+      dialect: process.env.dialect
+    });
+}
+else{
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
 fs.readdirSync(__dirname)
   .filter(file => {

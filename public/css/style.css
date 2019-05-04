@@ -7,14 +7,14 @@ body {
 }
 
 .body {
-  background-image: url(../images/bright-bush-close-up-101841.jpg);
+  background-image: url(../Images/bright-bush-close-up-101841.jpg);
   background-size: 100%;
   width: 100%;
   height: 100%;
 }
 
 #body {
-  background-image: url(../images/close-up-fresh-freshness-1964869.jpg);
+  background-image: url(../Images/close-up-fresh-freshness-1964869.jpg);
   background-size: 100%;
   width: 100%;
   height: 100%;
@@ -35,8 +35,4 @@ h2 {
 }
 .navbar-toggler-icon {
   border: solid white;
-}
-
-.img-container{
-  text-align: center;
 }
